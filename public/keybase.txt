@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/kenh
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://khorovatin.github.io
+  * I am kenh (https://keybase.io/kenh) on keybase.
+  * I have a public key ASDKiOdhtjPWu2XbNNGLAq4GcTcrNfoUWObP55-QItl0nQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120ca88e761b633d6bb65db34d18b02ae0671372b35fa1458e6cfe79f9022d9749d0a",
+            "host": "keybase.io",
+            "kid": "0120ca88e761b633d6bb65db34d18b02ae0671372b35fa1458e6cfe79f9022d9749d0a",
+            "uid": "a923d01bac74b33fa99f1c0699dc6419",
+            "username": "kenh"
+        },
+        "service": {
+            "hostname": "khorovatin.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1487281002,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1487280935,
+        "hash": "68def8ad8db2d9257f216bbf5187ab5b1d23bda269500e8f4a64b6f6dbb5f82c6eb29f76f8dc125d36ffea099a8c9ba28bb5e2c221839090f452606e59909271",
+        "seqno": 897917
+    },
+    "prev": "60ba6aeba269a229b663565adc6e6b879aff7e1b1e727f677d8cccd43a79f4d7",
+    "seqno": 36,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgyojnYbYz1rtl2zTRiwKuBnE3KzX6FFjmz+efkCLZdJ0Kp3BheWxvYWTFAvl7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwY2E4OGU3NjFiNjMzZDZiYjY1ZGIzNGQxOGIwMmFlMDY3MTM3MmIzNWZhMTQ1OGU2Y2ZlNzlmOTAyMmQ5NzQ5ZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwY2E4OGU3NjFiNjMzZDZiYjY1ZGIzNGQxOGIwMmFlMDY3MTM3MmIzNWZhMTQ1OGU2Y2ZlNzlmOTAyMmQ5NzQ5ZDBhIiwidWlkIjoiYTkyM2QwMWJhYzc0YjMzZmE5OWYxYzA2OTlkYzY0MTkiLCJ1c2VybmFtZSI6ImtlbmgifSwic2VydmljZSI6eyJob3N0bmFtZSI6Imtob3JvdmF0aW4uZ2l0aHViLmlvIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTgifSwiY3RpbWUiOjE0ODcyODEwMDIsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ4NzI4MDkzNSwiaGFzaCI6IjY4ZGVmOGFkOGRiMmQ5MjU3ZjIxNmJiZjUxODdhYjViMWQyM2JkYTI2OTUwMGU4ZjRhNjRiNmY2ZGJiNWY4MmM2ZWIyOWY3NmY4ZGMxMjVkMzZmZmVhMDk5YThjOWJhMjhiYjVlMmMyMjE4MzkwOTBmNDUyNjA2ZTU5OTA5MjcxIiwic2Vxbm8iOjg5NzkxN30sInByZXYiOiI2MGJhNmFlYmEyNjlhMjI5YjY2MzU2NWFkYzZlNmI4NzlhZmY3ZTFiMWU3MjdmNjc3ZDhjY2NkNDNhNzlmNGQ3Iiwic2Vxbm8iOjM2LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQJQDtb64LJVZEFDivVpkco/AFasVIwguRrG8YIVoEm94kwV3as/o7PKX55zfoHflpFweyP1W/KX6BwJeoDhReAOoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCBMAhmY5PhF/Ry/+A6FHnuAq1UNlL2JcDJOmilCq9y6HqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kenh
+
+==================================================================
