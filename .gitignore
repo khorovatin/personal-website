@@ -9,9 +9,9 @@
 Thumbs.db
 blogdown
 content/post/*.html
-/resources/_gen/
 /*_files/
 *.utf8.md
 *.knit.md
 .httr-oauth
 /*.tar.gz
+/resources/_gen/
