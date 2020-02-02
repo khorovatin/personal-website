@@ -8,7 +8,6 @@
 /cache/
 Thumbs.db
 blogdown
-/public/
 content/post/*.html
 /resources/_gen/
 /*_files/
