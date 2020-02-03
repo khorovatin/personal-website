@@ -123,13 +123,14 @@ date_format = "Jan 2006"
   date_start = "2010-09-30"
   date_end = "2012-01-31"
   description = """
-  Performed manual and automation-assisted testing of the organization's custom 
-  electricity market management software.
+  Tested and reported on the quality of the company's proprietary high-quality, 
+  low-bandwidth video encoder.
   
-  Reviewed and revised test plans, test cases and test progress reporting systems.
+  Introduced pragmatic test practices to an Agile software development environment.
+  Lead tester of the company's leading edge video compression software.
   
-  Responsible for performance tests of an enterprise-wide upgrade of their 
-  Oracle database systems.
+  Worked closely with developers, business analysts and other stakeholders to 
+  ensure testing met their needs.
   """
 
 [[experience]]
@@ -140,14 +141,13 @@ date_format = "Jan 2006"
   date_start = "2009-06-01"
   date_end = "2010-10-15"
   description = """
-  Tested and reported on the quality of the company's proprietary high-quality, 
-  low-bandwidth video encoder.
+  Performed manual and automation-assisted testing of the organization's custom 
+  electricity market management software.
   
-  Introduced pragmatic test practices to an Agile software development environment.
-  Lead tester of the company's leading edge video compression software.
+  Reviewed and revised test plans, test cases and test progress reporting systems.
   
-  Worked closely with developers, business analysts and other stakeholders to 
-  ensure testing met their needs.
+  Responsible for performance tests of an enterprise-wide upgrade of their 
+  Oracle database systems.
   """
 
 [[experience]]
