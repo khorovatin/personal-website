@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Ken Horovatin</title>
-    <link>/authors/</link>
-      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://ken.horovatin.com/authors/</link>
+      <atom:link href="https://ken.horovatin.com/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Ken Horovatin</copyright><lastBuildDate>Tue, 21 Aug 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
-      <link>/authors/</link>
+      <link>https://ken.horovatin.com/authors/</link>
     </image>
     
     <item>
       <title></title>
-      <link>/authors/admin/</link>
+      <link>https://ken.horovatin.com/authors/admin/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>/authors/admin/</guid>
+      <guid>https://ken.horovatin.com/authors/admin/</guid>
       <description>&lt;p&gt;Ken Horovatin is a life-long learner who is curious about all things science
 and technology. He has been involved in the computer and technology industries
 his entire career.&lt;/p&gt;
@@ -25,25 +25,25 @@ his entire career.&lt;/p&gt;
     
     <item>
       <title>Chris Salvador</title>
-      <link>/authors/chris-salvador/</link>
+      <link>https://ken.horovatin.com/authors/chris-salvador/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>/authors/chris-salvador/</guid>
+      <guid>https://ken.horovatin.com/authors/chris-salvador/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stephen Lai</title>
-      <link>/authors/stephen-lai/</link>
+      <link>https://ken.horovatin.com/authors/stephen-lai/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>/authors/stephen-lai/</guid>
+      <guid>https://ken.horovatin.com/authors/stephen-lai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tim Walter</title>
-      <link>/authors/tim-walter/</link>
+      <link>https://ken.horovatin.com/authors/tim-walter/</link>
       <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>/authors/tim-walter/</guid>
+      <guid>https://ken.horovatin.com/authors/tim-walter/</guid>
       <description></description>
     </item>
     

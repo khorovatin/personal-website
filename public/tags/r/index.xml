@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R | Ken Horovatin</title>
-    <link>/tags/r/</link>
-      <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://ken.horovatin.com/tags/r/</link>
+      <atom:link href="https://ken.horovatin.com/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Ken Horovatin</copyright><lastBuildDate>Thu, 24 Sep 2015 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>R</title>
-      <link>/tags/r/</link>
+      <link>https://ken.horovatin.com/tags/r/</link>
     </image>
     
     <item>
       <title>Developing Data Products Assignment</title>
-      <link>/project/devdataprod-034/</link>
+      <link>https://ken.horovatin.com/project/devdataprod-034/</link>
       <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/project/devdataprod-034/</guid>
+      <guid>https://ken.horovatin.com/project/devdataprod-034/</guid>
       <description>&lt;p&gt;Note that the application linked in the assignment is no longer available
 online.&lt;/p&gt;
 </description>
@@ -24,9 +24,9 @@ online.&lt;/p&gt;
     
     <item>
       <title>Practical Machine Learning Assignment</title>
-      <link>/project/predmachlearn-032/</link>
+      <link>https://ken.horovatin.com/project/predmachlearn-032/</link>
       <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/project/predmachlearn-032/</guid>
+      <guid>https://ken.horovatin.com/project/predmachlearn-032/</guid>
       <description></description>
     </item>
     
