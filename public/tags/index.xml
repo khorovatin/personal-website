@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags | Ken Horovatin</title>
-    <link>https://ken.horovatin.com/tags/</link>
-      <atom:link href="https://ken.horovatin.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/</link>
+      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Ken Horovatin</copyright><lastBuildDate>Thu, 24 Sep 2015 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
-      <link>https://ken.horovatin.com/tags/</link>
+      <link>/tags/</link>
     </image>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://ken.horovatin.com/tags/machine-learning/</link>
+      <link>/tags/machine-learning/</link>
       <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ken.horovatin.com/tags/machine-learning/</guid>
+      <guid>/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://ken.horovatin.com/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ken.horovatin.com/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
