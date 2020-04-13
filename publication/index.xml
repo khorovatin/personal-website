@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Ken Horovatin</title>
+    <link>https://ken.horovatin.net/publication/</link>
+      <atom:link href="https://ken.horovatin.net/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Ken Horovatin</copyright><lastBuildDate>Tue, 21 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Publications</title>
+      <link>https://ken.horovatin.net/publication/</link>
+    </image>
+    
+    <item>
+      <title>Method and Apparatus for Detecting Downhole Torsional Vibration Based on Measurement of Surface Torque</title>
+      <link>https://ken.horovatin.net/publication/patent/</link>
+      <pubDate>Tue, 21 Aug 2018 00:00:00 +0000</pubDate>
+      <guid>https://ken.horovatin.net/publication/patent/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
