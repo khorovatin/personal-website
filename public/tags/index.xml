@@ -12,21 +12,5 @@
       <link>https://ken.horovatin.net/tags/</link>
     </image>
     
-    <item>
-      <title>Machine Learning</title>
-      <link>https://ken.horovatin.net/tags/machine-learning/</link>
-      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ken.horovatin.net/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://ken.horovatin.net/tags/r/</link>
-      <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ken.horovatin.net/tags/r/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
