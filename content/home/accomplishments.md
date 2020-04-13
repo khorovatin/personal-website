@@ -24,8 +24,8 @@ date_format = "Jan 2006"
   title = "Automate the Boring Stuff with Python Programming"
   url = "https://www.udemy.com/course/automate/"
   certificate_url = "https://www.udemy.com/certificate/UC-GQXVYNXZ/"
-  date_start = "2018-09-27"
-  date_end = ""
+  date_start = "2019-12-08"
+  date_end = "2019-12-20"
   description = """
   Explored using the Python language to automate tasks including generating and
   updating Excel spreadsheets, crawling websites to pull information, parsing
@@ -184,20 +184,6 @@ date_format = "Jan 2006"
   programming in R, reading data in to R, accessing R packages, writing R
   functions, debugging and profiling R code, and organizing and commenting 
   R code.
-  """
-
-  [[item]]
-  organization = "Coursera"
-  organization_url = "https://www.coursera.org"
-  title = "The Data Scientist’s Toolbox"
-  url = "https://www.coursera.org/course/datascitoolbox"
-  certificate_url = "https://www.coursera.org/account/accomplishments/verify/KRLXNXD2CP"
-  date_start = "2014-12-17"
-  date_end = ""
-  description = """
-  Introduction to the main tools and ideas in the data scientist's toolbox. 
-  
-  Covered markdown, version control with git and GitHub, R, and RStudio.
   """
 
   [[item]]

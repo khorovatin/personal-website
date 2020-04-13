@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning | Ken Horovatin</title>
-    <link>https://ken.horovatin.com/tags/machine-learning/</link>
-      <atom:link href="https://ken.horovatin.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://ken.horovatin.net/tags/machine-learning/</link>
+      <atom:link href="https://ken.horovatin.net/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Machine Learning</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Ken Horovatin</copyright><lastBuildDate>Thu, 24 Sep 2015 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Machine Learning</title>
-      <link>https://ken.horovatin.com/tags/machine-learning/</link>
+      <link>https://ken.horovatin.net/tags/machine-learning/</link>
     </image>
     
     <item>
       <title>Practical Machine Learning Assignment</title>
-      <link>https://ken.horovatin.com/project/predmachlearn-032/</link>
+      <link>https://ken.horovatin.net/project/predmachlearn-032/</link>
       <pubDate>Thu, 24 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://ken.horovatin.com/project/predmachlearn-032/</guid>
+      <guid>https://ken.horovatin.net/project/predmachlearn-032/</guid>
       <description></description>
     </item>
     
