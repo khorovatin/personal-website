@@ -21,6 +21,24 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Udemy"
   organization_url = "https://www.udemy.com"
+  title = "Robot Framework Test Automation - Level 1 ( Selenium )"
+  url = "https://www.udemy.com/course/robot-framework-level-1/"
+  certificate_url = "https://www.udemy.com/certificate/UC-46b66c07-7c2f-4bd2-8a05-639793c4453c/"
+  date_start = "2020-06-01"
+  date_end = "2020-06-08"
+  description = """
+  Installed and configured the Robot Framework test automation tool, including
+  libraries.
+  
+  Wrote and executed test automation scripts using Robot Framework and libraries
+  such as Selenium Webdriver and Squish.  Created Robot Framework keywords to 
+  implement the tests, and wrote tests using Robot Framework's version of the
+  BDD Gherkin syntax.
+  """
+  
+[[item]]
+  organization = "Udemy"
+  organization_url = "https://www.udemy.com"
   title = "Automate the Boring Stuff with Python Programming"
   url = "https://www.udemy.com/course/automate/"
   certificate_url = "https://www.udemy.com/certificate/UC-GQXVYNXZ/"
