@@ -25,12 +25,10 @@ date_format = "Jan 2006"
   date_start = "2019-12-02"
   date_end = ""
   description = """
-  Responsibilities include:
+  Manual and automated testing of a Windows application developed for a large international customer.
   
-  * Analysing
-  * Testing
-  * Automating
-  * Reporting
+  * Implemented and maintained a test automation framework using Froglogic Squish and Robot Framework that is on track to reduce the time taken for a regression test of the application from a week with several manual testers to hours on one machine.
+  * Wrote Python libraries for Robot Framework to access the Squish API.
   """
 
 [[experience]]
@@ -61,7 +59,13 @@ date_format = "Jan 2006"
   location = "Calgary, Alberta"
   date_start = "2014-03-04"
   date_end = "2019-10-27"
-  description = """Analysis, testing, and reporting on end-to-end data quality."""
+  description = """Analysis, testing, and reporting on end-to-end data quality.
+  
+  * Made extensive use of the R language to gather, analyze, and report on the quality of oil rig drilling and safety data managed by the company's systems.
+  * Developed and maintained a suite of R scripts to query subsystems and create Microsoft Word reports on their data handling characteristics.
+  * Maintained and extended the software related to a Raspberry Pi-based drilling signal simulator, including on-board Python and a central web-based management server that controlled multiple simulators.
+  * Provided data quality analysis and feedback to an internal research team, resulting in a Patent on a surface stick-slip detection algorithm.
+  """
 
 [[experience]]
   title = "QA Automation Specialist"
@@ -74,10 +78,8 @@ date_format = "Jan 2006"
   Created automated test scripts for the company's drill rig instrumentation 
   products.
   
-  Maintained and extended the in-house test automation framework.
-  
-  Created and deployed a RESTful web API and database for storing and reporting 
-  test automation results using Grails and MySQL.
+  * Maintained and extended the in-house test automation framework.
+  * Created and deployed a RESTful web API and database for storing and reporting test automation results using Grails and MySQL.
   """
 
 [[experience]]
@@ -106,7 +108,7 @@ date_format = "Jan 2006"
   date_start = "2012-02-01"
   date_end = "2012-04-30"
   description = """
-  Managed a team of testers working on the next generation of management systems.
+  Managed a team of testers working on the next generation of internal management systems.
   
   Performed staff assignment, scheduling, hiring and performance reviews.
   
@@ -126,11 +128,10 @@ date_format = "Jan 2006"
   Tested and reported on the quality of the company's proprietary high-quality, 
   low-bandwidth video encoder.
   
-  Introduced pragmatic test practices to an Agile software development environment.
-  Lead tester of the company's leading edge video compression software.
+  * Introduced pragmatic test practices to an Agile software development environment.
+  * Lead tester of the company's leading edge video compression software.
   
-  Worked closely with developers, business analysts and other stakeholders to 
-  ensure testing met their needs.
+  * Worked closely with developers, business analysts and other stakeholders to ensure testing met their needs.
   """
 
 [[experience]]
