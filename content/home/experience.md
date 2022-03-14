@@ -18,17 +18,32 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
+  title = "Senior Analyst, QA"
+  company = "WestJet Airlines Ltd."
+  company_url = "https://www.westject.com"
+  location = "Calgary, Alberta"
+  date_start = "2022-01-04"
+  date_end = ""
+  description = """
+  Testing a data Extract, Transform, and Load (ETL) project.
+  
+  * QA Team Lead.
+  * Working with Snowflake and Oracle databases. 
+  """
+  
+  [[experience]]
   title = "Senior QA Analyst"
   company = "C4i Training & Technology"
   company_url = "https://www.c4itrgtech.com"
   location = "Calgary, Alberta"
   date_start = "2019-12-02"
-  date_end = ""
+  date_end = "2021-12-01"
   description = """
   Manual and automated testing of a Windows application developed for a large international customer.
   
-  * Implemented and maintained a test automation framework using Froglogic Squish and Robot Framework that is on track to reduce the time taken for a regression test of the application from a week with several manual testers to hours on one machine.
+  * Implemented and maintained a test automation framework using Froglogic Squish and Robot Framework that reduced the time taken for a regression test of the application from a week with several manual testers to hours on one machine.
   * Wrote Python libraries for Robot Framework to access the Squish API.
+  * Mentored team members on test automation, including Python, Robot Framework, and using Behavior Driven Developement (BDD) features of Robot Framework for writing test scenarios. 
   """
 
 [[experience]]
