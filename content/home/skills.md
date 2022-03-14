@@ -30,7 +30,7 @@ subtitle = ""
   icon = "database"
   icon_pack = "fas"
   name = "Databases"
-  description = "75%"
+  description = "80%"
   
 [[feature]]
   icon = "r-project"
@@ -42,7 +42,7 @@ subtitle = ""
   icon = "python"
   icon_pack = "fab"
   name = "Python"
-  description = "60%"  
+  description = "70%"  
   
 [[feature]]
   icon = "docker"
