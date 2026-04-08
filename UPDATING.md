@@ -36,39 +36,30 @@ Within `personal-website`, the key paths are:
 
 ### Prerequisites
 
-Install these tools on your Mac:
+Install these tools on your computer:
 
 - **R**
 - **RStudio**
 - R packages: **blogdown** and **servr**
-- **Hugo**, preferably installed via `blogdown::install_hugo()`
+- **Hugo 0.68.3**
 
 ### Recommended: install Hugo from RStudio with Blogdown
 
-For this site, prefer installing Hugo from within RStudio using Blogdown. This keeps the Hugo version used by Blogdown more predictable, which is especially helpful for older Blogdown/Hugo Academic sites.
+For this site, prefer installing Hugo from within RStudio using Blogdown. This keeps the Hugo version used by Blogdown predictable, which is especially helpful for an older Blogdown/Hugo Academic site.
 
 Run this in the R console:
 
 ```r
 install.packages(c("blogdown", "servr"))
 
-blogdown::install_hugo()
+blogdown::install_hugo(version = "0.68.3", force = TRUE)
 blogdown::find_hugo()
 blogdown::hugo_version()
 ```
 
-If you need a specific Hugo version later, Blogdown also supports installing a chosen version.
+### Optional: install Hugo another way
 
-### Optional: install Hugo with Homebrew
-
-If you also use Hugo outside RStudio, you can install it system-wide with Homebrew:
-
-```bash
-brew install hugo
-hugo version
-```
-
-However, Blogdown documentation notes that on macOS, Homebrew-based Hugo installs can be less stable for long-lived Blogdown sites because package upgrades may move Hugo to a newer version unexpectedly.
+If you already manage Hugo outside RStudio, you can do that, but make sure the version used for this site is **0.68.3**. The local version should match the version pinned in GitHub Actions.
 
 ### Open the project
 
@@ -108,9 +99,7 @@ From the R console in RStudio, run:
 blogdown::serve_site()
 ```
 
-This starts a local preview server and automatically reloads changes as you edit files.
-
-Useful alternatives:
+Useful commands:
 
 ```r
 blogdown::build_site()
@@ -141,7 +130,7 @@ git commit -m "Update site content"
 git push origin master
 ```
 
-4. GitHub Actions builds the site with Hugo
+4. GitHub Actions builds the site with **Hugo 0.68.3**
 5. GitHub Actions pushes the generated output to `khorovatin/khorovatin.github.io`
 6. GitHub Pages serves the updated site at `https://ken.horovatin.net/`
 
@@ -149,12 +138,14 @@ After this is working, you should no longer need to manually build and push the 
 
 ---
 
-## GitHub Actions deploy setup
+## GitHub Actions workflows
 
-Create `.github/workflows/deploy.yml` in `khorovatin/personal-website` with this content:
+### Temporary build-only workflow
+
+Use this first to confirm that GitHub Actions can build the site successfully:
 
 ```yaml
-name: Build and Deploy
+name: Build Hugo Site
 
 on:
   push:
@@ -162,8 +153,13 @@ on:
       - master
   workflow_dispatch:
 
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  build:
+    name: Build Hugo site
     runs-on: ubuntu-latest
 
     steps:
@@ -175,11 +171,76 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.68.3'
           extended: true
 
       - name: Build site
         run: hugo --minify
+
+      - name: Upload built site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: ./public
+          if-no-files-found: error
+```
+
+### Final build + deploy workflow
+
+After the build-only workflow succeeds, use this deploy workflow:
+
+```yaml
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Hugo site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.68.3'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Upload built site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: ./public
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy built site
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Download built site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public-site
+          path: ./public
 
       - name: Deploy to khorovatin.github.io
         uses: peaceiris/actions-gh-pages@v4
@@ -193,7 +254,7 @@ jobs:
 
 ### Required GitHub secret
 
-The workflow needs a Personal Access Token so it can push to the output repo.
+The deploy workflow needs a Personal Access Token so it can push to the output repo.
 
 1. Go to `https://github.com/settings/tokens`
 2. Generate a **classic** token
@@ -255,20 +316,20 @@ Because the theme structure changed significantly over time, a fresh migration i
 | Problem | What to check |
 |---|---|
 | `blogdown::serve_site()` fails | Confirm `blogdown` is installed and run `blogdown::find_hugo()` |
-| Wrong Hugo version | Run `blogdown::hugo_version()` |
-| `hugo` command not found | Install Hugo with `blogdown::install_hugo()` or Homebrew |
-| CSS / SCSS problems | Confirm Hugo is the Extended version |
+| Wrong Hugo version | Run `blogdown::hugo_version()` and confirm it is `0.68.3` |
+| `hugo` command not found | Install Hugo with `blogdown::install_hugo(version = "0.68.3")` |
+| CSS / SCSS problems | Confirm Hugo Extended is being used |
+| Build fails in GitHub Actions | Check the workflow log and confirm the workflow pins `0.68.3` |
 | Deploy fails in GitHub Actions | Check the workflow log and confirm `DEPLOY_TOKEN` exists |
 | Site updates locally but not live | Wait a minute, then check the Actions run and the output repo |
 | Custom domain disappears | Confirm the workflow still sets `cname: ken.horovatin.net` |
-| Homebrew updated Hugo unexpectedly | Reinstall Hugo with `blogdown::install_hugo()` and verify the version |
 
 ---
 
 ## Quick summary
 
 - Edit and preview locally in **RStudio with Blogdown**
-- Install Hugo with **`blogdown::install_hugo()`** unless you have a specific reason to use Homebrew
+- Use **Hugo 0.68.3** locally and in CI
 - Push changes to `personal-website`
 - Let **GitHub Actions** build with Hugo and publish to `khorovatin.github.io`
 - Keep the old manual `public/` workflow only as a fallback

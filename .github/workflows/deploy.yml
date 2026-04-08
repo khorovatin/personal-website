@@ -1,0 +1,60 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Hugo site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.68.3'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Upload built site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: ./public
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy built site
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Download built site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public-site
+          path: ./public
+
+      - name: Deploy to khorovatin.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: khorovatin/khorovatin.github.io
+          publish_branch: master
+          publish_dir: ./public
+          cname: ken.horovatin.net

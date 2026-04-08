@@ -14,7 +14,7 @@ blogdown::serve_site()
 ```
 
 3. Commit and push your changes to `master`
-4. GitHub Actions builds the site with Hugo
+4. GitHub Actions builds the site with **Hugo 0.68.3**
 5. The workflow publishes the built site to `khorovatin.github.io`
 6. GitHub Pages serves the updated site at `https://ken.horovatin.net/`
 
@@ -31,8 +31,13 @@ on:
       - master
   workflow_dispatch:
 
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  build:
+    name: Build Hugo site
     runs-on: ubuntu-latest
 
     steps:
@@ -44,11 +49,31 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.68.3'
           extended: true
 
       - name: Build site
         run: hugo --minify
+
+      - name: Upload built site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: ./public
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy built site
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Download built site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public-site
+          path: ./public
 
       - name: Deploy to khorovatin.github.io
         uses: peaceiris/actions-gh-pages@v4
@@ -64,13 +89,11 @@ Then create a GitHub Personal Access Token with `repo` scope and save it in this
 
 ## Hugo installation note
 
-For this site, prefer installing Hugo from RStudio with:
+For this site, use Hugo **0.68.3** so local builds match CI:
 
 ```r
-blogdown::install_hugo()
+blogdown::install_hugo(version = "0.68.3", force = TRUE)
 ```
-
-This is usually safer for older Blogdown sites than relying on Homebrew upgrades.
 
 ## Notes
 
