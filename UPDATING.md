@@ -1,115 +1,157 @@
 # Updating ken.horovatin.net
 
-This document describes the complete workflow for editing content and publishing the site at [ken.horovatin.net](https://ken.horovatin.net).
+This site was originally created with **R Blogdown in RStudio** and uses **Hugo** as the static site generator. The source repo is [`khorovatin/personal-website`](https://github.com/khorovatin/personal-website), and the built site is published from [`khorovatin/khorovatin.github.io`](https://github.com/khorovatin/khorovatin.github.io).
+
+Recommended workflow:
+
+- Use **RStudio + Blogdown** for editing and local preview
+- Use **Git + GitHub** for version control
+- Use **GitHub Actions** to build and deploy automatically after each push
+
+For a shorter publishing-only checklist, see [DEPLOYING.md](./DEPLOYING.md).
 
 ---
 
-## Architecture Overview
+## Repository layout
 
 | Repo | Purpose |
 |---|---|
-| [`khorovatin/personal-website`](https://github.com/khorovatin/personal-website) | **Source repo** — Hugo project with Markdown content, config, and theme |
-| [`khorovatin/khorovatin.github.io`](https://github.com/khorovatin/khorovatin.github.io) | **Published output repo** — pre-built HTML pushed here, served by GitHub Pages at the custom domain |
+| `khorovatin/personal-website` | Source repo: content, config, theme, and project files |
+| `khorovatin/khorovatin.github.io` | Published output repo: generated HTML, CSS, JS, and assets served by GitHub Pages |
 
-The source repo builds the site with [Hugo](https://gohugo.io/) and the theme is located in `themes/hugo-academic/`. A GitHub Actions workflow (see below) automatically builds the site and pushes the output to the `.github.io` repo on every push to `master`.
+Within `personal-website`, the key paths are:
+
+| Path | Purpose |
+|---|---|
+| `content/` | Markdown content for pages, projects, publications, and home sections |
+| `config.toml` | Main Hugo site config |
+| `config/_default/` | Additional Hugo config files |
+| `themes/hugo-academic/` | Vendored Academic theme used by the site |
+| `public/` | Built output from the older manual workflow |
+| `personal-website.Rproj` | RStudio project file |
 
 ---
 
-## Prerequisites (Local Development)
+## Local setup in RStudio
+
+### Prerequisites
 
 Install these tools on your Mac:
 
-```bash
-# Install Hugo (extended version required for SCSS)
-brew install hugo
+- **R**
+- **RStudio**
+- R packages: **blogdown** and **servr**
+- **Hugo**, preferably installed via `blogdown::install_hugo()`
 
-# Verify
-hugo version
-# Should output: hugo v0.xxx.x+extended ...
+### Recommended: install Hugo from RStudio with Blogdown
+
+For this site, prefer installing Hugo from within RStudio using Blogdown. This keeps the Hugo version used by Blogdown more predictable, which is especially helpful for older Blogdown/Hugo Academic sites.
+
+Run this in the R console:
+
+```r
+install.packages(c("blogdown", "servr"))
+
+blogdown::install_hugo()
+blogdown::find_hugo()
+blogdown::hugo_version()
 ```
 
-> **Note:** The site uses Hugo Extended (for SCSS compilation). Always install the `extended` variant. On macOS via Homebrew this is the default.
+If you need a specific Hugo version later, Blogdown also supports installing a chosen version.
 
----
+### Optional: install Hugo with Homebrew
 
-## Day-to-Day: Editing Content
+If you also use Hugo outside RStudio, you can install it system-wide with Homebrew:
 
-All editable content lives in the `content/` directory. Files are written in Markdown with YAML front matter.
+```bash
+brew install hugo
+hugo version
+```
 
-### 1. Clone the source repo (first time only)
+However, Blogdown documentation notes that on macOS, Homebrew-based Hugo installs can be less stable for long-lived Blogdown sites because package upgrades may move Hugo to a newer version unexpectedly.
+
+### Open the project
+
+1. Clone the repository if you have not already:
 
 ```bash
 git clone https://github.com/khorovatin/personal-website.git
 cd personal-website
 ```
 
-### 2. Start the local preview server
-
-```bash
-hugo server -D
-```
-
-Open [http://localhost:1313](http://localhost:1313) in your browser. The page live-reloads whenever you save a file.
-
-### 3. Edit content
-
-Common content files:
-
-| What to edit | File path |
-|---|---|
-| About / biography | `content/authors/admin/_index.md` |
-| Skills | `content/home/skills.md` |
-| Experience (work history) | `content/home/experience.md` |
-| Projects | `content/project/` (one `.md` file per project) |
-| Publications | `content/publication/` |
-| Site-wide config (title, links) | `config.toml` + `config/_default/` |
-
-### 4. Commit and push
-
-```bash
-git add .
-git commit -m "Update skills section"
-git push origin master
-```
-
-After pushing, the GitHub Actions workflow (see below) automatically builds the site and deploys it to `khorovatin.github.io`. **You do not need to manually build or push to the `.github.io` repo.**
+2. Open `personal-website.Rproj` in **RStudio**.
 
 ---
 
-## GitHub Actions: Automated Build & Deploy
+## Editing content
 
-A workflow file at `.github/workflows/deploy.yml` handles the build and deploy automatically. Here is what it does:
+Most day-to-day edits happen in `content/`.
 
-1. Triggers on every push to `master` in this repo
-2. Checks out the source repo
-3. Installs Hugo Extended
-4. Runs `hugo --minify` to build the static site into the `public/` directory
-5. Force-pushes the contents of `public/` to the `master` branch of `khorovatin/khorovatin.github.io`
+| What to edit | File path |
+|---|---|
+| About / profile | `content/authors/admin/_index.md` |
+| Skills section | `content/home/skills.md` |
+| Experience section | `content/home/experience.md` |
+| Projects | `content/project/` |
+| Publications | `content/publication/` |
+| Site title / base URL / global settings | `config.toml` |
 
-### Setting up the workflow (one-time setup)
+You can also update settings in `config/_default/` if needed.
 
-#### Step 1: Create a Personal Access Token (PAT)
+---
 
-The Actions workflow needs permission to push to the `.github.io` repo.
+## Previewing locally with Blogdown
 
-1. Go to [github.com/settings/tokens](https://github.com/settings/tokens)
-2. Click **Generate new token (classic)**
-3. Give it a descriptive name: `personal-website-deploy`
-4. Set expiration to **No expiration** (or rotate annually)
-5. Select scope: **`repo`** (full control of private repositories)
-6. Click **Generate token** and copy the value immediately
+From the R console in RStudio, run:
 
-#### Step 2: Add the token as a repository secret
+```r
+blogdown::serve_site()
+```
 
-1. Go to [github.com/khorovatin/personal-website/settings/secrets/actions](https://github.com/khorovatin/personal-website/settings/secrets/actions)
-2. Click **New repository secret**
-3. Name: `DEPLOY_TOKEN`
-4. Value: paste the PAT you generated
-5. Click **Add secret**
+This starts a local preview server and automatically reloads changes as you edit files.
 
-#### Step 3: Create the workflow file
+Useful alternatives:
 
-Create `.github/workflows/deploy.yml` in this repo with the following content:
+```r
+blogdown::build_site()
+blogdown::stop_server()
+blogdown::find_hugo()
+blogdown::hugo_version()
+```
+
+Notes:
+
+- `blogdown::serve_site()` is the easiest day-to-day workflow in RStudio
+- Under the hood, Blogdown calls Hugo to render the site
+- If something fails locally, first check `blogdown::find_hugo()` and `blogdown::hugo_version()`
+
+---
+
+## Publishing changes
+
+Once the deploy workflow is set up, publishing should be simple:
+
+1. Make your edits in RStudio
+2. Preview with `blogdown::serve_site()`
+3. Commit your changes:
+
+```bash
+git add .
+git commit -m "Update site content"
+git push origin master
+```
+
+4. GitHub Actions builds the site with Hugo
+5. GitHub Actions pushes the generated output to `khorovatin/khorovatin.github.io`
+6. GitHub Pages serves the updated site at `https://ken.horovatin.net/`
+
+After this is working, you should no longer need to manually build and push the `public/` folder yourself.
+
+---
+
+## GitHub Actions deploy setup
+
+Create `.github/workflows/deploy.yml` in `khorovatin/personal-website` with this content:
 
 ```yaml
 name: Build and Deploy
@@ -118,6 +160,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -127,13 +170,12 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          submodules: false
           fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "latest"
+          hugo-version: 'latest'
           extended: true
 
       - name: Build site
@@ -149,89 +191,84 @@ jobs:
           cname: ken.horovatin.net
 ```
 
-> **Important:** The `cname` line ensures the `CNAME` file (needed for your custom domain) is preserved in the output repo on every deploy.
+### Required GitHub secret
 
-#### Step 4: Commit the workflow and push
+The workflow needs a Personal Access Token so it can push to the output repo.
 
-```bash
-git add .github/workflows/deploy.yml
-git commit -m "Add GitHub Actions deploy workflow"
-git push origin master
-```
-
-After this push, watch the Actions tab at [github.com/khorovatin/personal-website/actions](https://github.com/khorovatin/personal-website/actions) to confirm the first deploy succeeds.
+1. Go to `https://github.com/settings/tokens`
+2. Generate a **classic** token
+3. Name it something like `personal-website-deploy`
+4. Give it the `repo` scope
+5. Copy the token
+6. In `personal-website`, go to **Settings > Secrets and variables > Actions**
+7. Create a new repository secret named `DEPLOY_TOKEN`
+8. Paste the token value and save
 
 ---
 
-## Manual Build & Deploy (if CI is unavailable)
+## Manual fallback workflow
 
-If you need to build and publish manually without GitHub Actions:
+If GitHub Actions is unavailable, you can still build manually.
+
+### Option 1: Build from RStudio / R
+
+```r
+blogdown::build_site()
+```
+
+### Option 2: Build from the terminal
 
 ```bash
-# 1. Build the site
 hugo --minify
-
-# 2. Go into the built output
-cd public
-
-# 3. Push to the published repo (first time: init the remote)
-git init
-git remote add origin https://github.com/khorovatin/khorovatin.github.io.git
-git add .
-git commit -m "Publish site $(date '+%Y-%m-%d')"
-git push --force origin master
 ```
 
-> After a manual deploy, make sure the `CNAME` file exists in the root of `khorovatin.github.io` containing `ken.horovatin.net` — otherwise GitHub Pages will drop the custom domain.
+Then publish the generated `public/` directory to `khorovatin.github.io` manually.
+
+This should be considered a fallback only.
 
 ---
 
-## Updating the Theme
+## Updating the theme
 
-The theme is vendored in `themes/hugo-academic/`. It was last updated circa 2019 (hugo-academic v4).
+The site currently uses the vendored `hugo-academic` theme in `themes/hugo-academic/`. This theme is old and may require a larger migration if you want to move to the modern HugoBlox successor.
 
-### Check the current theme version
+### Minor changes
 
-```bash
-cat themes/hugo-academic/theme.toml | grep version
-```
+For small tweaks, you can continue editing the current theme files directly.
 
-### Upgrading to a newer theme version
+### Major upgrade path
 
-The `hugo-academic` theme has since been renamed and restructured as [HugoBlox](https://hugoblox.com/). A direct upgrade requires care because the config format changed significantly in v5+.
+For a larger modernization:
 
-**Recommended approach for a major upgrade:**
+1. Back up your content in `content/`
+2. Create a fresh site using the modern Academic / HugoBlox starter
+3. Migrate content into the new structure
+4. Test locally in RStudio or with Hugo
+5. Replace the old site once the new one is working
 
-1. Back up your `content/` directory — your actual content is portable
-2. Create a fresh Hugo + HugoBlox project:
-   ```bash
-   git clone https://github.com/HugoBlox/theme-academic-cv.git new-site
-   cd new-site
-   hugo server
-   ```
-3. Copy your content files from the old `content/` into the new structure, adapting front matter as needed
-4. Test locally, then replace this repo's contents
-
-**Minor patch updates (staying on v4 theme):** You can manually copy updated files from the [hugo-academic v4 release](https://github.com/gcushen/hugo-academic/releases) into `themes/hugo-academic/`.
+Because the theme structure changed significantly over time, a fresh migration is usually easier than trying to patch the old theme in place.
 
 ---
 
 ## Troubleshooting
 
-| Problem | Solution |
+| Problem | What to check |
 |---|---|
-| `hugo: command not found` | Run `brew install hugo` |
-| Site builds but CSS is broken | Make sure you installed Hugo **Extended** (`hugo version` should include `+extended`) |
-| GitHub Actions deploy fails with 403 | The `DEPLOY_TOKEN` secret may be missing or expired — regenerate it (see Setup above) |
-| Custom domain disappears after deploy | Make sure the `cname: ken.horovatin.net` line is in the workflow file |
-| Changes visible locally but not live | Check the Actions tab for build errors; allow 1-2 minutes for GitHub Pages CDN propagation |
+| `blogdown::serve_site()` fails | Confirm `blogdown` is installed and run `blogdown::find_hugo()` |
+| Wrong Hugo version | Run `blogdown::hugo_version()` |
+| `hugo` command not found | Install Hugo with `blogdown::install_hugo()` or Homebrew |
+| CSS / SCSS problems | Confirm Hugo is the Extended version |
+| Deploy fails in GitHub Actions | Check the workflow log and confirm `DEPLOY_TOKEN` exists |
+| Site updates locally but not live | Wait a minute, then check the Actions run and the output repo |
+| Custom domain disappears | Confirm the workflow still sets `cname: ken.horovatin.net` |
+| Homebrew updated Hugo unexpectedly | Reinstall Hugo with `blogdown::install_hugo()` and verify the version |
 
 ---
 
-## Repository Reference
+## Quick summary
 
-- **Source repo:** [github.com/khorovatin/personal-website](https://github.com/khorovatin/personal-website)
-- **Published repo:** [github.com/khorovatin/khorovatin.github.io](https://github.com/khorovatin/khorovatin.github.io)
-- **Live site:** [ken.horovatin.net](https://ken.horovatin.net)
-- **Hugo docs:** [gohugo.io/documentation](https://gohugo.io/documentation/)
-- **HugoBlox (modern Academic theme):** [hugoblox.com](https://hugoblox.com)
+- Edit and preview locally in **RStudio with Blogdown**
+- Install Hugo with **`blogdown::install_hugo()`** unless you have a specific reason to use Homebrew
+- Push changes to `personal-website`
+- Let **GitHub Actions** build with Hugo and publish to `khorovatin.github.io`
+- Keep the old manual `public/` workflow only as a fallback
