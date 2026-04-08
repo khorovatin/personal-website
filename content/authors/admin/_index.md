@@ -10,14 +10,16 @@ education:
     year: 1980
 email: "ken@horovatin.net"
 interests:
-- Data Science
-- Software Test Automation
+- 3D Printing
+- Laser Cutting and Engraving
 - Photography
+- Data Science and Automation
+- Personal Software Projects
 name: Ken Horovatin
 organizations:
 - name: Horovatin Consulting Ltd.
   url: "https://www.horovatin.com"
-role: Data Analyst, Software Tester, and Web Developer 
+role: Retired QA leader, test automation mentor, and maker 
 social:
 - icon: envelope
   icon_pack: fas
@@ -43,7 +45,9 @@ user_groups:
 - Visitors
 ---
 
-Ken Horovatin is a life-long learner who is curious about all things science
-and technology. He has been involved in the computer and technology industries
-his entire career. 
+Retired at the end of 2025 after a career in software quality assurance, 
+automation, data analysis, and technical leadership. I now focus on 3D printing, 
+laser cutting and engraving, photography, and personal technical projects, while 
+my wife and I continue to operate Horovatin Consulting Ltd. on a selective 
+consulting basis.
 

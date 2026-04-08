@@ -20,15 +20,16 @@ date_format = "Jan 2006"
 [[experience]]
   title = "Senior Analyst, QA"
   company = "WestJet Airlines Ltd."
-  company_url = "https://www.westject.com"
+  company_url = "https://www.westjet.com"
   location = "Calgary, Alberta"
   date_start = "2022-01-04"
-  date_end = ""
+  date_end = "2025-12-31"
   description = """
-  Testing a data Extract, Transform, and Load (ETL) project.
+  QA leadership on major data and customer-platform initiatives.
   
-  * QA Team Lead.
-  * Working with Snowflake and Oracle databases. 
+  * Led QA for migration of guest loyalty data to a new rewards provider, ensuring accurate conversion and integrity of member balances and history.
+  * Provided QA leadership on a major ETL and data quality initiative involving Snowflake and Oracle systems.
+  * Helped inspire the QA Test Automation team to transition toward Robot Framework, Selenium, and Python for test automation, encouraging modern, maintainable approaches to automated testing. 
   """
   
   [[experience]]
@@ -54,17 +55,11 @@ date_format = "Jan 2006"
   date_start = "2012-05-02"
   date_end = ""
   description = """
-  Formed a company to provide professional software testing and test automation 
-  services to industry in Calgary, Alberta.
+  Family-run consulting company operated by my wife and me.
   
-  Expanded to provide expert human resources services and custom salary surveys 
-  to Alberta municipalities and businesses in 2018.
-  
-  Created customized salary surveys for municipalities and municipal 
-  organizations in Southern and Central Alberta.
-  
-  Gathered, cleaned, and analyzed data to produce reports for survey 
-  participants and subscribers using R (RStudio) and Excel. 
+  * Continue to provide selective consulting and analytical services that complement my retirement.
+  * Developed customized salary surveys and reporting for Alberta municipalities and organizations.
+  * Gathered, cleaned, analyzed, and reported data using R, RStudio, and Excel.
   """
 
 [[experience]]
